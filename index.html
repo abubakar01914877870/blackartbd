@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abu Bakar Siddique - Senior QA Engineer</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-primary-hover: var(--color-teal-400);
+                --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: var(--space-32) var(--space-24);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: var(--space-48) 0;
+        }
+
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: var(--space-24);
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+            border: 4px solid var(--color-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .change-photo-hint {
+            margin-top: var(--space-8);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            font-style: italic;
+        }
+
+        h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-8);
+            color: var(--color-text);
+        }
+
+        .subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--color-primary);
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--space-16);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-24);
+            margin-bottom: var(--space-24);
+            font-size: var(--font-size-base);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+            color: var(--color-text-secondary);
+        }
+
+        .contact-item a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: var(--color-primary-hover);
+        }
+
+        /* Summary */
+        .summary {
+            background-color: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            margin-bottom: var(--space-32);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .summary p {
+            font-size: var(--font-size-lg);
+            line-height: 1.7;
+            color: var(--color-text);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-24);
+            color: var(--color-text);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: var(--space-8);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-16);
+            margin-bottom: var(--space-48);
+        }
+
+        .skill-item {
+            background-color: var(--color-surface);
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+            border: 1px solid var(--color-card-border);
+            font-size: var(--font-size-base);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Experience */
+        .experience-list {
+            margin-bottom: var(--space-48);
+        }
+
+        .experience-item {
+            background-color: var(--color-surface);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            margin-bottom: var(--space-24);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .experience-header {
+            margin-bottom: var(--space-16);
+        }
+
+        .job-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+            margin-bottom: var(--space-8);
+        }
+
+        .company-name {
+            font-size: var(--font-size-lg);
+            color: var(--color-primary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .job-duration {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-top: var(--space-8);
+        }
+
+        .responsibilities {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding-left: var(--space-24);
+            margin-bottom: var(--space-12);
+            position: relative;
+            font-size: var(--font-size-base);
+        }
+
+        .responsibilities li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* Education */
+        .education-list {
+            margin-bottom: var(--space-48);
+        }
+
+        .education-item {
+            background-color: var(--color-surface);
+            padding: var(--space-24);
+            border-radius: var(--radius-base);
+            border: 1px solid var(--color-card-border);
+            margin-bottom: var(--space-16);
+        }
+
+        .degree {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+            margin-bottom: var(--space-8);
+        }
+
+        .institution {
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
+        }
+
+        /* Tools Section */
+        .tools-section {
+            background-color: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            margin-bottom: var(--space-48);
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-12);
+        }
+
+        .tool-tag {
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+            padding: var(--space-8) var(--space-16);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            border: 1px solid var(--color-border);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: var(--space-32) 0;
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-16);
+            }
+
+            h1 {
+                font-size: var(--font-size-3xl);
+            }
+
+            .subtitle {
+                font-size: var(--font-size-lg);
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: var(--space-12);
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="profile-image-container">
+                <!-- CHANGE PHOTO: Replace 'profile.jpg' with your image filename -->
+                <img src="profile.jpg" alt="Abu Bakar Siddique" class="profile-image" id="profilePhoto">
+            </div>
+            <p class="change-photo-hint">💡 To change photo: Replace 'profile.jpg' with your image file</p>
+            <h1>Abu Bakar Siddique</h1>
+            <p class="subtitle">Senior Software Quality Assurance Engineer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Dhaka, Bangladesh</span>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+8801914877870">+880 1914 877870</a>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <a href="mailto:abubakar01914877870@gmail.com">abubakar01914877870@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <a href="https://linkedin.com/in/abu-bakar-siddique" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Summary -->
+        <section class="summary">
+            <p>Experienced Senior QA Engineer with over 10 years of expertise in manual and automation testing for web and mobile applications. Strong background in API, integration, and performance testing. Proven success in leading QA initiatives, training teams, and implementing automated solutions to maintain production-quality standards. Skilled at working with cross-functional teams in Agile environments and liaising with international clients.</p>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <h2 class="section-title">Key Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Test Automation (Selenium, Playwright, Cucumber – JavaScript)</div>
+                <div class="skill-item">API Testing &amp; Automation (REST API, Postman)</div>
+                <div class="skill-item">Performance Testing (Locust)</div>
+                <div class="skill-item">Manual Testing (Web, Mobile – Android/iOS)</div>
+                <div class="skill-item">System Integration Testing</div>
+                <div class="skill-item">Test Documentation (Test Plan, Test Report)</div>
+                <div class="skill-item">Defect Management (JIRA)</div>
+                <div class="skill-item">Regression &amp; Exploratory Testing</div>
+                <div class="skill-item">QA Training &amp; Team Mentoring</div>
+                <div class="skill-item">Agile/Scrum Collaboration</div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section>
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="job-title">Scenario Test Analyst</h3>
+                        <p class="company-name">MVI Solutions Ltd. — Dhaka, Bangladesh</p>
+                        <p class="job-duration">June 2023 – Present</p>
+                    </div>
+                    <p style="margin-bottom: 16px;">Part of the backend QA team for an Australian OTT platform built on a large-scale microservices architecture. Main responsibility is backend API testing, ensuring seamless integration, system stability, and strong performance across various microservices.</p>
+                    <ul class="responsibilities">
+                        <li>Designed and executed backend API test strategies to ensure functionality, data integrity, and business logic compliance</li>
+                        <li>Validated API request/response handling, error scenarios, and cross-service integration</li>
+                        <li>Collaborated with developers to resolve backend/API issues and enhance service reliability</li>
+                        <li>Authored documentation for API testing procedures and maintained regression test coverage</li>
+                        <li>Reported and tracked API defects, providing insights that improved product quality and deployment confidence</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="job-title">Senior SQA Engineer</h3>
+                        <p class="company-name">Field Nation LLC — Dhaka, Bangladesh</p>
+                        <p class="job-duration">July 2018 – May 2023</p>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Tested CRM integrations with Salesforce, ServiceNow, and others</li>
+                        <li>Wrote API and load tests for new microservices</li>
+                        <li>Reviewed business requirements and prepared test cases and data</li>
+                        <li>Mentored junior QAs and helped transition the team from manual to automation</li>
+                        <li>Built an automation suite used in regression cycles</li>
+                        <li>Maintained high production quality with minimal bugs for 2+ years</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="job-title">Software QA Engineer</h3>
+                        <p class="company-name">Amber IT Ltd. — Dhaka, Bangladesh</p>
+                        <p class="job-duration">May 2016 – March 2017</p>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Performed functional and regression testing across web and mobile apps</li>
+                        <li>Created test strategies, scenarios, and documented bugs</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="job-title">Junior Engineer</h3>
+                        <p class="company-name">Samsung R&amp;D Institute Bangladesh Ltd. — Dhaka, Bangladesh</p>
+                        <p class="job-duration">September 2011 – August 2015</p>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Worked on SDK testing, test case creation, and QA automation</li>
+                        <li>Trained new team members and maintained QA documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h2 class="section-title">Education</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <p class="degree">B.Sc. in Electrical and Electronics Engineering</p>
+                    <p class="institution">IBAIS University — 2011</p>
+                </div>
+                <div class="education-item">
+                    <p class="degree">Diploma in Electronics Engineering</p>
+                    <p class="institution">Tangail Polytechnic Institute — 2008</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools & Technologies -->
+        <section class="tools-section">
+            <h2 class="section-title">Tools &amp; Technologies</h2>
+            <div class="tools-list">
+                <span class="tool-tag">Selenium</span>
+                <span class="tool-tag">Playwright</span>
+                <span class="tool-tag">Cucumber</span>
+                <span class="tool-tag">JavaScript</span>
+                <span class="tool-tag">Postman</span>
+                <span class="tool-tag">Locust</span>
+                <span class="tool-tag">JIRA</span>
+                <span class="tool-tag">Git</span>
+                <span class="tool-tag">SQL</span>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Abu Bakar Siddique. All rights reserved.</p>
+    </footer>
+</body>
+</html>
